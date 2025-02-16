@@ -1,13 +1,12 @@
-
+import dotenv from 'dotenv'
+dotenv.config()
 import mongoose from 'mongoose';
 
 // URL de conexão com o MongoDB Atlas
-const uri = "mongodb+srv://adeutoo:vse7YrLgnC6VlFep@cluster0.l8qva.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
 
 const conectarMongoDB = async () => {
   try {
-    await mongoose.connect(uri, {
+    await mongoose.connect(process.env.MONGO_URL , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
