@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
-
+import { v4 as uuidv4 } from "uuid";
 // Definir o schema do Imóvel com dados espaciais
 const imovelSchema = new mongoose.Schema({
+
   titulo: {
     type: String,
     required: true,

@@ -4,7 +4,7 @@ export default class CriarImovelController {
   static async criarImovel(req, res) {
     try {
       const { dados, latitude, longitude } = req.body;
-
+ console.log(req.body, "dados valor")
       // Verificação das coordenadas
       if (latitude == null || longitude == null) {
         return res.status(400).json({ error: 'Latitude e Longitude são obrigatórias.' });
