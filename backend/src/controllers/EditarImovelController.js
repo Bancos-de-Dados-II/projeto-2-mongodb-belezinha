@@ -6,7 +6,7 @@ export default class EditarImovelController {
       const { id } = req.params;
       const { titulo, nome, descricao, valor, contato, latitude, longitude } = req.body;
       
-      console.log(valor, "valor")
+      console.log(req.body, id, "valor ee")
       // Verificar se latitude e longitude são fornecidos
       if (latitude == null || longitude == null) {
         return res.status(400).json({ error: 'Latitude e Longitude são obrigatórias.' });
@@ -22,7 +22,7 @@ export default class EditarImovelController {
         titulo,
         nome,
         descricao,
-        valor: parseFloat(valor),  // Converter o valor para número
+        valor,  // Converter o valor para número
         contato,
         localizacao: { 
           type: 'Point',
@@ -30,6 +30,7 @@ export default class EditarImovelController {
         },
       }, { new: true });
 
+       console.log(imovel, "imovel")
       if (!imovel) {
         return res.status(404).json({ error: 'Imóvel não encontrado.' });
       }
